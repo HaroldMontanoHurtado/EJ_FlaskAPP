@@ -1,5 +1,6 @@
 #folders
 env-flask
+env-windows
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
