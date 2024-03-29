@@ -15,7 +15,10 @@ app.secret_key = 'mysecretkey'
 
 @app.route('/') # ruta principal de la página
 def Index():
-    return render_template('index.html')
+    cursor = mysql.connection.cursor()
+    cursor.execute('SELECT * FROM contacts')
+    data = cursor.fetchall()
+    return render_template('index.html', contacts= data)
 
 @app.route('/add_contact', methods=['POST']) # sub-ruta para agregar contactos
 def add_contact():
