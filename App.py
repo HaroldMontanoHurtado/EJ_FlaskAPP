@@ -3,11 +3,15 @@ from flask_mysqldb import MySQL
 
 app = Flask(__name__)
 
+# MySQL Connection
 app.config['MYSQL_HOST'] = 'localhost'
 app.config['MYSQL_USER'] = 'root'
 app.config['MYSQL_PASSWORD'] = ''
 app.config['MYSQL_DB'] = 'flaskcontacts'
 mysql = MySQL(app)
+
+# Settings
+app.secret_key = 'mysecretkey'
 
 @app.route('/') # ruta principal de la página
 def Index():
