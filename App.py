@@ -39,9 +39,14 @@ def add_contact():
 def edit_contact():
     return 'Edit Contact'
 
-@app.route('/delete') # sub-ruta para eliminar contacto
-def delete_contact():
-    return 'Delete Contact'
+@app.route('/delete/<string:id>') # sub-ruta para eliminar contacto
+def delete_contact(id):
+    
+    cur = mysql.connection.cursor()
+    cur.execute('DELETE FROM contacts WHERE id = {0}'.format(id))
+    mysql.connection.commit()
+    flash('Contact removed successfully')
+    return redirect(url_for('Index'))
 
 if(__name__=='__main__'):
     app.run(port=3000, debug=True)
