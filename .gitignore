@@ -1,6 +1,7 @@
 #folders
 env-flask
 env-windows
+.vscode
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
